@@ -1,47 +1,15 @@
-import React from 'react';
-import { StyleSheet, Button, Text, View } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createMaterialTopTabNavigator } from 'react-navigation';
+import HomeScreen from './src/containers/HomeScreen';
+import SideScreen from './src/containers/SideScreen';
 
-class LoginScreen extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
-}
-
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Details',
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Button
-          title="Go to Details"
-          onPress={() => this.props.navigation.navigate('Login')}
-        />
-      </View>
-    );
-  }
-}
+const TabNavigator = createMaterialTopTabNavigator({
+  Notícias: { screen: HomeScreen },
+  Albums: { screen: SideScreen },
+  Eventos: { screen: SideScreen },
+});
 
 const App = createStackNavigator({
-  Home: { screen: HomeScreen },
-  Login: { screen: LoginScreen },
+  Main: TabNavigator,
 });
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
