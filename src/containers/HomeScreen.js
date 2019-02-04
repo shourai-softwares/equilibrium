@@ -12,7 +12,7 @@ class HomeScreen extends React.Component {
           selectedIndex={0}
           buttons={['Atualizações', 'Avisos']}
         />
-        <ScrollView style={{ height: null }}>
+        <ScrollView>
           <PostFrame />
           <PostFrame />
           <PostFrame />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { Card, Button } from 'react-native-elements';
 import { imgSuryaNamaskar } from '../images';
 
